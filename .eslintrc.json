@@ -1,0 +1,20 @@
+{
+    "extends": [
+      "react-app",
+      "standard",
+      "standard-jsx",
+      "standard-react"
+    ],
+    "plugins": [
+      "jsx-a11y"
+    ],
+    "rules": {
+      "no-undef": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-pascal-case": "off",
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": ["off", {
+        "ignoreRestSiblings": true
+      }]
+    }
+  }
