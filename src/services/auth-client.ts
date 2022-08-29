@@ -6,7 +6,7 @@ type Login = {
 }
 
 type Register = {
-  fullName: string
+  username: string
   email: string
   password: string
 }
@@ -20,9 +20,9 @@ export const login = async ({ email, password }: Login) => {
   }
 }
 
-export const register = async ({ fullName, email, password }: Register) => {
+export const register = async ({ username, email, password }: Register) => {
   try {
-    const response = await api.post('/user/register', { fullName, email, password })
+    const response = await api.post('/user', { username, email, password })
     return response.data
   } catch (error) {
     console.log(error)
