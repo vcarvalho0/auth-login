@@ -2,8 +2,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import { Home } from '../src/pages/Home/Home'
 import { AuthProvider } from './context/AuthContext'
-import { SignIn } from './pages/SignIn/SingIn'
-import { SignUp } from './pages/SingUp/SingUp'
+import { SignIn } from './pages/SignIn/SignIn'
+import { SignUp } from './pages/SignUp/SignUp'
 
 export function App () {
   return (

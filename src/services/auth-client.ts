@@ -11,6 +11,18 @@ type Register = {
   password: string
 }
 
+export const getUserLocalStorage = () => {
+  const json = localStorage.getItem('token')
+
+  if (!json) {
+    return null
+  }
+
+  const user = JSON.parse(json)
+
+  return user ?? null
+}
+
 export const login = async ({ email, password }: Login) => {
   try {
     const response = await api.post('/user/authenticate', { email, password })
