@@ -1,18 +1,22 @@
-import { useAuth } from '../../context/AuthContext'
+import { Center, Flex, Heading, Text, Button } from '@chakra-ui/react'
+import { useAuth } from '@/context/auth-context'
+import { Navigate } from 'react-router-dom'
 
 export function Home () {
-  const auth = useAuth()
+  const { email, token, logOut } = useAuth()
 
-  if (!auth.email) {
-    return (
-      <>
-        <h1>Você precisa estar logado!</h1>
-      </>
-    )
+  if (!token) {
+    return <Navigate to='/login' />
   }
   return (
-    <>
-      <h1>Bem Vindo</h1>
-    </>
+    <Center mx='auto' height='100vh'>
+      <Flex direction='column'>
+        <Center mb='8'>
+          <Heading>Welcome 🚀</Heading>
+        </Center>
+        <Text>You are logged as {email}</Text>
+        <Button onClick={logOut}>LogOut</Button>
+      </Flex>
+    </Center>
   )
 }

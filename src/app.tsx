@@ -1,20 +1,22 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-
-import { Home } from '../src/pages/Home/Home'
-import { AuthProvider } from './context/AuthContext'
-import { SignIn } from './pages/SignIn/SignIn'
-import { SignUp } from './pages/SignUp/SignUp'
+import { Home } from '@/pages/home/home'
+import { AuthProvider } from '@/context/auth-context'
+import { Login } from '@/pages/login/login'
+import { Register } from '@/pages/register/register'
+import { ChakraProvider } from '@chakra-ui/react'
 
 export function App () {
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/register' element={<SignUp />} />
-          <Route path='/login' element={<SignIn />} />
-        </Routes>
-      </BrowserRouter>
-    </AuthProvider>
+    <ChakraProvider>
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Register />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/home' element={<Home />} />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
+    </ChakraProvider>
   )
 }
